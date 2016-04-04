@@ -1,0 +1,23 @@
+
+Naps
+<div class="grid-content medium-9">
+	
+	<!-- create new nap directive -->
+	<nap-create></nap-create>
+
+	<!-- loop through all naps -->
+	<div ng-repeat="nip in nips | orderBy: 'completed'" ng-init="nip.completed = false" ng-class="{ 'editing-item': editing, 'edited': nip.edited, 'completed': nip.completed }" class="card">
+		<div class="card-divider">
+			<a href="" ng-click="deleteNip(nip, $index)" class="float-right"><img zf-iconic="" icon="Circle-x" size="small"></a>
+			<label ng-click="editing = true" for="nap-title" ng-hide="editing">{{ nip.title }}</label>
+			<input ng-change="nip.edited = true" ng-blur="editing = false; saveNips(nip)" ng-show="editing" ng-model="nip.title" type="text" name="nap-title" id="">
+		</div>
+		<div class="card-section">
+
+			<!-- hash tags directive -->
+			<p>{{ nip.description }} <nap-hash-tags></nap-hash-tags></p>
+		
+		</div>
+	</div>
+	{{ nips }}
+</div>

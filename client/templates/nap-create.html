@@ -1,0 +1,13 @@
+	<div class="card" ng-init="nip.completed = false" ng-class="{ 'new-item': editing, 'edited': nip.edited, 'completed': nip.completed }">
+		<div class="card-divider">
+			<span class="inline-label">
+				<input ng-model="nipCreate.title" ng-blur="editing = false" type="text" name="nip-create-title" id="idNipCreateTitle" placeholder="New title" value="{{ nipCreate.title }}">
+				<a ng-click="addNip(nipCreate.title,nipCreate.description,nipCreate.hashTags); nipCreate.title = nipCreate.description = null;" href="" class="button">Add</a>
+			</span>
+		</div>
+		<div class="card-section">
+				<input ng-model="nipCreate.description" type="text" name="nip-create-description" id="idNipCreateDescription" placeholder="New description" value="{{ nipCreate.description }}">
+				<input ng-model="nipCreate.hashTags" type="text" name="nip-create-hash-tags" id="idNipCreateHashTags" placeholder="New hash tags" value="{{ nipCreate.hashTags }}">
+		</div>
+	</div>
+</div>
