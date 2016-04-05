@@ -8,13 +8,9 @@ controller: NapsCtrl
 	<section class="block-list">
 		<header>Tropics</header>
 		<ul>
-		<li ng-repeat="tag in nip.tags"
-				section="'tag'" ui-sref-active="is-active"><a href="#">{{ tag }} {{ sectionCount() }}</a></li>
-
-			<!-- <naps-section-item
-				ng-repeat="tag in nip.tags"
-				section="'tag'">
-			</naps-section-item> -->
+			<li ng-repeat="tag in uniqueTags">
+				{{tag}}
+			</li>
 		</ul>
 	</section>
 </div>

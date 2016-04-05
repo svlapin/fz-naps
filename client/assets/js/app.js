@@ -11,6 +11,11 @@
     'foundation.dynamicRouting.animations'
   ])
   .controller('NapsCtrl', function($scope, $state, $http, dataService){
+    $scope.uniqueTags = [];
+
+    $scope.$watchCollection('nips', function() {
+      $scope.uniqueTags =  _($scope.nips || []).map('tags').flatten().value();
+    });
 
     $scope.addNip = function(nipCreateTitle,nipCreateDescription,nipCreateHashTags){
       var nip = {
